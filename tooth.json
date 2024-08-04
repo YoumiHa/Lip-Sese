@@ -2,11 +2,12 @@
     "format_version": 2,
     "tooth": "github.com/YoumiHa/Lip-Sese",
     "version": "0.0.1",
-    "asset_url": "https://github.com/YoumiHa/Lip-Sese/releases/download/0.0.1/photo.zip",
+    "asset_url": "https://github.com/YoumiHa/Lip-Sese/releases/download/v0.0.1/photo.zip",
     "info": {
         "name": "SeTu",
         "description": "SESE",
         "author": "YoumiHa",
+        "source": "github.com/YoumiHa/Lip-Sese",
         "tags": ["sese"]
     },
     "files": {
