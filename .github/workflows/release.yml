@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:                # Job-level permissions configuration starts here
+      contents: write           # 'write' access to repository contents
+      pull-requests: write      # 'write' access to pull requests
+    steps:
+      - uses: actions/checkout@master
+        with:
+          submodules: true
+      - name: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: Release
+          path: ./
+      - name: Init git
+        run: |
+             git config --global user.email "2149656630@qq.com" 
+             git config --global user.name "xianyubb"
+      - name: Set up version
+        run: echo "VERSION=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
+
+      - name: Create tag
+        run: git tag -a ${{ env.VERSION }} -m "Release ${{ env.VERSION }}"
+
+      - name: Push tag
+        run: git push origin ${{ env.VERSION }}
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.VERSION }}
+          name: Lip-Sese
