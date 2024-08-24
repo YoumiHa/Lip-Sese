@@ -20,13 +20,13 @@ jobs:
           name: Release
           path: ./
       - name: Set up version
-        run: echo "RELEASE_VERSION=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
+        run: echo "VERSION=1.0.$(git rev-list --count --first-parent HEAD)" >> $GITHUB_ENV
 
       - name: Create tag
-        run: git tag -a ${{ env.RELEASE_VERSION }} -m "Release ${{ env.RELEASE_VERSION }}"
+        run: git tag -a ${{ env.VERSION }} -m "Release ${{ env.VERSION }}"
 
       - name: Push tag
-        run: git push origin ${{ env.RELEASE_VERSION }}
+        run: git push origin ${{ env.VERSION }}
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
