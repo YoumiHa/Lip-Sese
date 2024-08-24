@@ -21,8 +21,8 @@ jobs:
           path: ./
       - name: Init git
         run: |
-             git config --global user.email "2149656630@qq.com" 
-             git config --global user.name "xianyubb"
+             git config --global user.email "iRealColors@outlook.de" 
+             git config --global user.name "YoumiHa"
       - name: Set up version
         run: echo "VERSION=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
 
