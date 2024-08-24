@@ -20,7 +20,8 @@ jobs:
           name: Release
           path: ./
       - name: Init git
-        run: git config --global user.email "2149656630@qq.com" |
+        run: |
+             git config --global user.email "2149656630@qq.com" 
              git config --global user.name "xianyubb"
       - name: Set up version
         run: echo "VERSION=1.0.$(git rev-list --count --first-parent HEAD)" >> $GITHUB_ENV
